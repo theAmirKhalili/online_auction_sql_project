@@ -16,7 +16,7 @@ create table buyer
 (
 	id int primary key,
 	shipping_address varchar(100) not null,
-	constraint fk_bm foreign key (id) references member (id) on delete cascade on update cascade
+	constraint fk_bm foreign key (id) references member (id) on delete cascade on update no action
 );
 
 create table seller
@@ -24,7 +24,7 @@ create table seller
 	id int primary key,
 	bank_acc_num varchar(16) not null,
 	routing_num varchar(16) not null,
-	constraint fk_sm foreign key (id) references member (id) on delete cascade on update cascade
+	constraint fk_sm foreign key (id) references member (id) on delete cascade on update no action
 );
 
 create table category
@@ -44,8 +44,8 @@ create table item
 	[start_date] datetime not null,
 	[end_date] datetime not null,
 	id_cat int not null,
-	constraint fk_ic foreign key (id_cat) references category(id) on delete cascade on update cascade,
-	constraint fk_is foreign key (id_seller) references seller(id) on delete cascade on update cascade
+	constraint fk_ic foreign key (id_cat) references category(id) on delete no action on update no action,
+	constraint fk_is foreign key (id_seller) references seller(id) on delete no action on update no action
 );
 
 create table bids
@@ -55,8 +55,8 @@ create table bids
 	bid_price int not null,
 	[time] datetime,
 	primary key(id_buyer, id_item, [time]),
-	constraint fk_bb foreign key (id_buyer) references buyer(id) on delete cascade on update cascade,
-	constraint fk_bi foreign key (id_item) references item(id) on delete cascade on update cascade
+	constraint fk_bb foreign key (id_buyer) references buyer(id) on delete no action on update no action,
+	constraint fk_bi foreign key (id_item) references item(id) on delete no action on update no action
 );
 
 create table [transaction]
@@ -64,7 +64,7 @@ create table [transaction]
 	id_bid int,
 	id_item int,
 	[time] datetime,
-	constraint fk_tb foreign key (id_bid, id_item, [time]) references bids(id_buyer, id_item, [time]) on delete cascade on update cascade
+	constraint fk_tb foreign key (id_bid, id_item, [time]) references bids(id_buyer, id_item, [time]) on delete cascade on update no action
 );
 
 create table feedback
