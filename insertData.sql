@@ -50,11 +50,11 @@ values  ('game,pc'),
 
 
 
-insert into item(id, id_seller, title, [description], starting_bid_price, bidding_inc, [start_date], end_date, id_cat)
-values (1, 1, 'LG', 'monitor 18 inch LG', 100, 20, '2007-04-30 20:10:02', '2007-04-30 21:10:02', 1),
-		(2, 1, 'harrypotter8','movie +18 drama', 10000, 500, '2019-12-16 20:10:02', '2019-12-17 20:10:02', 13),
-		(3, 6, 'hamlet','book philosophy', 100, 20, '2019-12-16 20:10:02', '2019-12-17 20:10:02', 9),
-		(4, 5, 'acc_overwatch', 'game +3 for girls', 5, 1,'2019-12-16 20:10:02', '2019-12-17 20:10:02', 14 );
+insert into item(id_seller, title, [description], starting_bid_price, bidding_inc, [start_date], end_date, id_cat)
+values (1, 'LG', 'monitor 18 inch LG', 100, 20, '2007-04-30 20:10:02', '2007-04-30 21:10:02', 1),
+		(1, 'harrypotter8','movie +18 drama', 10000, 500, '2019-12-16 20:10:02', '2019-12-17 20:10:02', 13),
+		(6, 'hamlet','book philosophy', 100, 20, '2019-12-16 20:10:02', '2019-12-17 20:10:02', 9),
+		(5, 'acc_overwatch', 'game +3 for girls', 5, 1,'2019-12-16 20:10:02', '2019-12-17 20:10:02', 14 );
 
 
 
@@ -62,7 +62,7 @@ insert into bids(id_buyer, id_item, bid_price, [time])
 values 
 		(1, 3, 140, '2019-12-17 20:05:02'),
 		(1, 4, 10, '2019-12-17 19:10:02'),
-		(6, 1, 150, '2007-04-30 20:10:02')
+		(6, 1, 150, '2007-04-30 20:10:02'),
 		(6, 3, 160,'2007-04-30 20:07:02'),
 		(6, 4, 15,'2019-12-17 19:30:02');
 
