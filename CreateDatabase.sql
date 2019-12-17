@@ -50,22 +50,19 @@ create table item
 
 create table bids
 (
+	id int identity(1,1) primary key,
 	id_buyer int,
 	id_item int,
 	bid_price int not null,
 	[time] datetime,
-	primary key(id_buyer, id_item, [time]),
 	constraint fk_bb foreign key (id_buyer) references buyer(id) on delete no action on update no action,
 	constraint fk_bi foreign key (id_item) references item(id) on delete no action on update no action
 );
 
 create table [transaction]
 (
-	id_bid int,
-	id_item int,
-	[time] datetime,
-	primary key(id_bid, id_item, [time]),
-	constraint fk_tb foreign key (id_bid, id_item, [time]) references bids(id_buyer, id_item, [time]) on delete cascade on update no action
+	id int primary key,
+	constraint fk_tb foreign key (id) references bids(id) on delete no action on update no action
 );
 
 create table feedback
