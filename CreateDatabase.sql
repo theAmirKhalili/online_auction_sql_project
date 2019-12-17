@@ -64,6 +64,7 @@ create table [transaction]
 	id_bid int,
 	id_item int,
 	[time] datetime,
+	primary key(id_bid, id_item, [time]),
 	constraint fk_tb foreign key (id_bid, id_item, [time]) references bids(id_buyer, id_item, [time]) on delete cascade on update no action
 );
 
